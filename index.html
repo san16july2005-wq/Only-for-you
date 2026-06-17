@@ -1,1 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For Namu ❤️</title>
 
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+      background: radial-gradient(circle at top, #111, #000);
+      color: #eee;
+      overflow-x: hidden;
+    }
+
+    /* 💫 SLIDES */
+    .slide {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 25px;
+
+      opacity: 0;
+      transform: scale(0.9) translateY(60px);
+      filter: blur(10px);
+      transition: all 1.2s ease;
+
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(8px);
+    }
+
+    .slide.show {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      filter: blur(0);
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px rgba(255,77,109,0.4);
+    }
+
+    p {
+      max-width: 750px;
+      font-size: 18px;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 700px;
+    }
+
+    img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 3px solid rgba(255,255,255,0.3);
+      box-shadow: 0 0 15px rgba(255,77,109,0.4);
+      margin-top: 15px;
+      transition: 0.3s;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background: #ff4d6d;
+      color: white;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+      margin-top: 15px;
+    }
+
+    /* NAV */
+    .nav {
+      position: fixed;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      z-index: 5;
+    }
+
+    .nav a {
+      margin: 4px;
+      padding: 8px 10px;
+      background: white;
+      border-radius: 20px;
+      text-decoration: none;
+      color: #ff4d6d;
+      font-size: 13px;
+    }
+
+    /* 💖 SIMPLE HEARTS */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 16px;
+      z-index: 1;
+      pointer-events: none;
+      animation: floatUp linear forwards;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- 🎬 INTRO -->
+<div id="intro" style="
+position:fixed;
+inset:0;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:9999;
+color:white;
+animation: fadeOut 3s ease 3s forwards;
+">
+  <h1 style="color:#ff4d6d;font-size:45px;">LOADING STORY</h1>
+  <p style="opacity:0.6;">A cinematic experience is starting...</p>
+</div>
+
+<!-- 💖 HEART SCRIPT -->
+<script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+
+  const emojis = ["❤️","💖"];
+
+  heart.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = "16px";
+  heart.style.animationDuration = "6s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}
+
+setInterval(createHeart, 800);
+</script>
+
+<!-- 🎞️ SLIDE ANIMATION -->
+<script>
+const slides = document.querySelectorAll(".slide");
+
+function revealSlides() {
+  const trigger = window.innerHeight * 0.85;
+
+  slides.forEach(slide => {
+    if (slide.getBoundingClientRect().top < trigger) {
+      slide.classList.add("show");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealSlides);
+window.addEventListener("load", revealSlides);
+</script>
+
+<!-- 1 -->
+<div class="slide" id="s1">
+  <h1>For Namu ❤️</h1>
+  <p>This isn't just a website.
+It's a collection of things I wanted to tell you.</p>
+</div>
+
+<!-- 2 -->
+<div class="slide" id="s2">
+  <h1>My Best Friend</h1>
+  <p>You are the person I trust the most.</p>
+  <img src="namu.jpg">
+</div>
+
+<!-- 3 -->
+<div class="slide" id="s3">
+  <h1>My Boyfriend</h1>
+  <p>You mean a lot to me.</p>
+</div>
+
+<!-- 4 -->
+<div class="slide" id="s4">
+  <h1>My Favorite Person</h1>
+  <p>You are my favorite human.</p>
+</div>
+
+<!-- 5 -->
+<div class="slide" id="s5">
+  <h1>My Safe Place</h1>
+  <p>You make everything feel okay.</p>
+</div>
+
+<!-- 6 -->
+<div class="slide" id="s6">
+  <h1>Why I Love You</h1>
+  <p>I love you because you're you ❤️</p>
+</div>
+
+<!-- 7 -->
+<div class="slide" id="s7">
+  <h1>Why You Are Amazing</h1>
+  <div class="card">
+    <p>
+Cute 🥰  
+Kind ❤️  
+Funny 😂  
+Strong 💪  
+Smart 🧠  
+Loyal 🤝  
+    </p>
+  </div>
+</div>
+
+<!-- 8 -->
+<div class="slide" id="s8">
+  <h1>Things That Remind Me of You 💭</h1>
+
+  <div style="display:flex;flex-direction:column;gap:18px;max-width:800px;">
+
+    <div class="card" style="display:flex;gap:15px;align-items:center;">
+      <img src="rain.jpg" style="width:90px;height:90px;">
+      <p>🌧️ Rain — calmness, peace, like you.</p>
+    </div>
+
+    <div class="card" style="display:flex;gap:15px;align-items:center;">
+      <img src="hinata.jpg" style="width:90px;height:90px;">
+      <p>🏐 Hinata — even without power, he still fights.</p>
+    </div>
+
+    <div class="card" style="display:flex;gap:15px;align-items:center;">
+      <img src="yourphoto.jpg" style="width:90px;height:90px;">
+      <p>💫 This picture — reminds me of you in ways I can’t explain.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- 9 -->
+<div class="slide" id="s9">
+  <h1>The Truth</h1>
+  <p>You mean so much to me.</p>
+</div>
+
+<!-- 10 -->
+<div class="slide" id="s10">
+  <h1>One Last Thing</h1>
+
+  <button onclick="document.getElementById('love').style.display='block'">
+    Secret Message 🎁
+  </button>
+
+  <div id="love" class="hidden">
+    <h2>❤️ Final Message ❤️</h2>
+    <p>You are important to me. Always.</p>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <a href="#s1">1</a>
+  <a href="#s2">2</a>
+  <a href="#s3">3</a>
+  <a href="#s4">4</a>
+  <a href="#s5">5</a>
+  <a href="#s6">6</a>
+  <a href="#s7">7</a>
+  <a href="#s8">8</a>
+  <a href="#s9">9</a>
+  <a href="#s10">10</a>
+</div>
+
+</body>
+</html>
